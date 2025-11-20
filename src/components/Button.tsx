@@ -1,12 +1,5 @@
-import type { ButtonHTMLAttributes, FC, ReactNode } from "react";
-
-type ButtonVariant = "plane" | "solid" | "outline";
-
-type ButtonPropType = {
-  children: ReactNode;
-  className?: string;
-  variant?: ButtonVariant;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+import type { FC } from "react";
+import type { ButtonPropType, ButtonVariant } from "../types/PropTypes";
 
 const variantClasses: Record<ButtonVariant, string> = {
   plane: "",
@@ -22,7 +15,7 @@ const Button: FC<ButtonPropType> = ({
 }) => {
   return (
     <button
-      className={`px-4 py-2 ${variantClasses[variant]} ${className}`}
+      className={`px-4 py-2 duration-100 active:scale-95 ${variantClasses[variant]} ${className}`}
       {...rest}
     >
       {children}
